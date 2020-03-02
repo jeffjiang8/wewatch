@@ -1,0 +1,38 @@
+  <h1><%= @episode.name%></h1>
+<img src="https://image.tmdb.org/t/p/w500/<%= @image_path %>" class="rounded float-right" alt="../../assets/images/no_show_pic.jpg">
+  <p>Overview: <%= @episode.overview%></p>
+  <p>Air date: <%= @episode.air_date%></p>
+  <% if @views.find_by(user_id: session[:user_id], show_id: @show.id, status: "Watching")%>
+    <%= form_with model: @watch do |f| %>
+        <%= f.label "Watched?" %>
+        <%= f.check_box(:watched)%>
+        <%= f.submit "Confirm" %>
+    <% end %>
+  <% end %>
+
+
+
+
+<h4><%= link_to "Back", show_path(@episode.season.show) %></h4>
+
+
+
+
+
+  <h3>Discuss this episode:</h3>
+<% @comments.each do |comment| %>
+    <h4><%= link_to comment.user.user_name, user_path(comment.user) %></h4>
+    <p><%= comment.comment %></p>
+    <p><%= link_to 'Edit', edit_comment_path(comment) %></p>
+<% end %>
+<% if session[:user_id] %>
+    <%= form_with model: Comment.new do |f| %>
+        <%= f.label "Your comment:"%>
+        <%= f.text_field :comment %><br/>
+        <%= f.hidden_field :episode_id, value: "#{params[:id]}" %>
+        <%= f.hidden_field :user_id, value: "#{session[:user_id]}" %>
+        <%= f.submit "Post it!" %>
+    <% end %>
+<% else %>
+    <h4><%= link_to "Login to leave a comment", login_path %></h4>
+<% end %>

@@ -1,0 +1,23 @@
+    <%= stylesheet_link_tag "shows" %>
+
+<body>
+  <h1><%= @show.name%></h1>
+      <img src="https://image.tmdb.org/t/p/w500/<%= @image_path %>" class="rounded float-right" alt="../assets/images/no_show_pic.jpg">
+      <div class="season-container" >
+      <%= form_with model: @view do |f| %>
+          <%= f.select(:status, ["Not Watching", "Watching", "Going to watch", "Stopped Watching"], selected: @show.views.map{|view| view.status if view.user_id == session[:user_id]} )%>
+          <%= f.hidden_field :show_id, value: "#{@show.id}" %>
+          <%= f.hidden_field :user_id, value: "#{session[:user_id]}" %>
+          <%= f.submit "Confirm" %>
+      <% end %>
+    <p><%= @show.overview %></p>
+      <p>Number of seasons: <%= @show.num_of_seasons %></p>
+      <p>Rating: <%= @show.vote_avg %></p>
+  <ul class="list-container">
+  <% @seasons.each do |season| %>
+      <li><%= link_to season.name, season_path(season) %></li>
+      <p>Number of episodes: <%= season.episode_count %></p>
+  <% end %>
+      </div>
+  </ul>
+</body>

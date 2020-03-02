@@ -1,0 +1,36 @@
+    <%= stylesheet_link_tag "shows" %>
+
+<h1>Welcome to WeWatch</h1>
+<ul class="container">
+    <% @shows.each do |show| %>
+        <li class="item">
+            <%= link_to show.name, show_path(show) %>
+            <p>Number of seasons: <%= show.num_of_seasons %></p>
+            <p>Rating: <%= show.vote_avg %></p>
+        </li>
+    <% end %>
+</ul>
+
+        <!-- <div class="card-group">
+            <% @check_out.each do |show| %>
+        <div class="card w-75">
+            <div class="contain">
+            <div class="row">
+                <div class="row__inner">
+
+                <div class="tile">
+                    <div class="tile__media">
+                    <img class="tile__img" src="https://image.tmdb.org/t/p/w500/<%= show.poster_path %>" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                    <div class="tile__title">
+                        <%= link_to show.name, show_path(show) %>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+            <% end %>
+    </div> -->

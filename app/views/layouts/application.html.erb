@@ -1,0 +1,41 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WeWatch</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  
+  <body class= "main_body">
+
+    <div class="navbar sticky-top navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="<%= shows_path %>">WeWatch</a>
+        <ul class="navbar-links" >
+            <% if logged_in? %>
+              <li class="nav-item"><a class="nav-link" href="<%= user_path(session[:user_id]) %>">Account</a><li>
+              <li class="nav-item"><a class="nav-link" href="<%= logout_path %>" data-method="delete" style="color: white;">Log Out</a><li>
+            <% else %>
+              <li class="nav-item"><a class="nav-link" href="<%= login_path %>" style="color: white;">Log In</a><li>
+              <li class="nav-item"><a class="nav-link" href="<%= signup_path %>" style="color: white;">Sign Up</a><li>
+            <% end %>
+            <li><a class="nav-link" href="<%= shows_path %>" style="color: white;">Shows</a>
+            <li><a class="nav-link" href="#" style="color: white;">News</a>
+        </ul>
+        <%= form_tag shows_path, :method => :get, :class => "search-bar" do %>
+          <div class="nav-item"><%= text_field_tag :q , "" ,  :class => "form-control_main" %></div>
+          <div class="nav-item"><%= submit_tag "Search", :class => "btn btn-dark"%></div>
+        <% end %>
+</div>
+
+    <%= yield %>
+  </body>
+</html>

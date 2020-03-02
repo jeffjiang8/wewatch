@@ -1,0 +1,58 @@
+// Place all the styles related to the Shows controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+        
+.main_body::after {
+    content: "";
+    background: url('https://assetstools.cosentino.com/api/v1/bynder/color/SL6/detalle/SL6-detail.jpg?w=1024&h=1024&auto=compress%2Cformat');
+    opacity: 0.85;
+    top: 0;
+    left: 8%;
+    bottom: 0;
+    right: 8%;
+    position: fixed;
+    z-index: -1;   
+  }
+
+  h1 {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.container {
+    padding-left: 5vw;
+    width: 80vw;
+    height: 200px; /* height given for illustration */
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+  }
+  
+  .item {
+    margin: 10px;
+    flex: 0 1 calc(20% - 8px); /* <-- adjusting for margin */
+  }
+
+  
+
+  img.rounded.float-right {
+    padding-right: 150px;
+  }
+
+  div.season-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 150px
+  }
+  
+  div.episode-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 150px
+  }
+
+  img.show.season {
+    padding-right: 150px;
+  }

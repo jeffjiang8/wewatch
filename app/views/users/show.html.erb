@@ -1,0 +1,71 @@
+<%= stylesheet_link_tag "users" %>
+
+<head>
+<style>
+
+h1 {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+ul {
+    text-align: center;
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+}
+
+.profile_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+</style>
+</head>
+
+  <body class="user">
+    <h1>Profile</h1>
+  <div class= "profile_container">
+    <div class= "item">
+      <p>Hello, <%= @user.user_name %></p>
+      <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+      <p>Phone Number: <%= @user.phone_number %></p>
+      <p>Age: <%= @user.age %></p>
+      <p>Followers: <%= @user.followers.size%></p>
+      <p>Following: <%= @user.followings.size%></p>
+    </div>
+    <div class= "item">
+      <p>Last comments:  </p>
+      <ul class="list-container">
+      <% @sorted_comments.take(5).each do |comment| %>
+          <li><%= link_to comment.episode.name, episode_path(comment.episode) %></li>
+          <p><%= comment.comment %></p>
+      <% end %>
+      </ul> 
+      <p>Recently Watched:  </p>
+      <ul>
+      <% @user.views.each do |view| %>
+          <li><%= link_to view.show.name, show_path(view.show) %></li>
+          <% @user.watches.each do |watch| %>
+              <p><%= link_to watch.episode.name, episode_path(watch.episode) if watch.episode.season.show == view.show && watch.watched == true %></p>
+          <% end %>
+      <% end %>
+      </ul> 
+      <% if @user.id == session[:user_id]%>
+        <%= button_to "Edit Account Information", {action: "edit", controller: "users", id: @user.id}, method: "get"%> 
+      <% else %>
+        <% if @user.followers.any?{|follow| follow.user_id == session[:user_id]} %>
+          <%= button_to "Unfollow", {action: "destroy", controller: "followings"}, params:{"followee_id" => @user.id } , method: "delete"%>
+        <% else %>
+          <%= button_to "Follow", {action: "create", controller: "followings"}, params:{"followee_id" => @user.id } , method: "post", :class => "btn follow_btn"%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</body>

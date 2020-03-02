@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag "shows" %>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+h1 {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+ul {
+    text-align: center;
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+}
+
+
+
+</style>
+</head>
+<div class="episode-container">
+<body class="season">
+
+<img src="https://image.tmdb.org/t/p/w500/<%= @image_path %>" class="show season" alt="../assets/images/no_show_pic.jpg">
+<% @episodes.each do |episode| %>
+    <p>Episode <%= episode.episode_number%>: <%= link_to episode.name, episode_path(episode) %><%= " - ✔️" if @watches.find{|watch| watch.episode_id == episode.id }%></p>
+<% end %>
+
+</body>
+</div>
+</html>

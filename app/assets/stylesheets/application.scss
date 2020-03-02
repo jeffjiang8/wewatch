@@ -1,0 +1,174 @@
+ @import "bootstrap";
+ @import "rails_bootstrap_forms";
+ @import url('https://fonts.googleapis.com/css?family=Numans');
+ @import url('https://fonts.googleapis.com/css?family=Quicksand:500&display=swap');
+
+ .main_body {
+    background-image: url('https://images.unsplash.com/photo-1514306191717-452ec28c7814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+
+  .navbar {
+    height: 4vw;
+    background-color: rgba(224, 11, 11, 0.7);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0.9rem;
+
+    .navbar-brand {
+      color: white;
+    }
+
+    .navbar-links {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+  }
+
+  
+  a {
+    transition: color 1s;
+    color: white;
+  }
+
+  a:hover {
+    color:greenyellow;
+  }
+
+  body{
+    font-family: 'Quicksand', sans-serif;
+  }
+/* Made with love by Mutiullah Samim*/
+
+.form-control_main
+{
+  // display: block;
+  width: 200px;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.034) !important;
+}
+// -------------------------------- LOG IN ---------------------------------------------
+.container_a{
+height: 100%;
+align-content: center;
+}
+
+.card_a{
+margin-top: 10vw;
+margin-bottom: auto;
+width: 400px;
+height: 300px;
+background-color: rgba(0,0,0,0.5) !important;
+border-radius: 0.4rem;
+}
+
+.card-header_a h3{
+color: white;
+padding: 0.5rem 1rem;
+}
+
+.form-control{
+  width: 300px;
+}
+
+.text-center{
+  color: rgb(216, 192, 169);
+}
+
+// -------------------------------- LOG IN ENDS ---------------------------------------------
+
+
+
+
+// -------------------------------- SIGN UP ---------------------------------------------
+
+.container_b{
+  height: 100%;
+  align-content: center;
+  }
+  
+  .card_b{
+  margin-top: 3vw;
+  margin-bottom: auto;
+  width: 400px;
+  height: 620px;
+  background-color: rgba(0,0,0,0.5) !important;
+  border-radius: 0.4rem;
+  }
+   
+
+// -------------------------------- SIGN UP ENDS ---------------------------------------------
+
+
+.input-group-prepend span{
+width: 50px;
+height: 38px;
+background-color: rgb(224, 11, 11);
+color: black;
+border:0 !important;
+z-index: 1;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.login_btn{
+color: black;
+background-color: rgb(224, 11, 11);
+width: 110px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+  color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+
+
+p {
+  color: white;
+}
+
+h1 {
+  color: white;
+
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row; 
+
+}

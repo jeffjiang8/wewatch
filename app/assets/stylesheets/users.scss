@@ -1,0 +1,36 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.main_body::after {
+    content: "";
+    margin-top: 4vw;
+    background: url('https://assetstools.cosentino.com/api/v1/bynder/color/SL6/detalle/SL6-detail.jpg?w=1024&h=1024&auto=compress%2Cformat');
+    opacity: 0.85;
+    top: 0;
+    left: 15%;
+    bottom: 0;
+    right: 15%;
+    position: fixed;
+    z-index: -1;   
+  }
+
+
+
+
+.follow_btn{
+    color: black;
+    background-color: rgb(224, 11, 11);
+    width: 100px;
+    margin: 1vw;
+}
+
+.follow_btn:hover{
+    color: black;
+    background-color: white;
+}
+
+.follow_btn:hover span {display:none;}
+
+.follow:hover:before {
+    content: "Unfollow"
+}

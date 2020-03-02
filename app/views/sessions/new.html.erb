@@ -1,0 +1,34 @@
+
+<div class="container_a">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card_a">
+			<div class="card-header_a">
+				<h3>Sign In</h3>
+			</div>
+			<div class="card-body">
+        <%= bootstrap_form_for @user, url: login_path, method: :post do |f| %>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <%= f.text_field :user_name, hide_label: true, placeholder: "username" , :control_class => "form-control" %>
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <%= f.password_field :password, hide_label: true, placeholder: "password" , :control_class => "form-control"  %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Log In", :class => "btn float-right login_btn"%>
+          </div>
+        <% end %>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account?<a href="<%= new_user_path %>">Sign Up</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
